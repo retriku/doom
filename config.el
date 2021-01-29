@@ -68,3 +68,13 @@
     (define-key scala-mode-map [remap compile] 'sbt-do-compile)))
 
 (add-to-list 'exec-path "~/.sdkman/candidates/leiningen/current/bin")
+
+(setq lsp-metals-java-home "~/.sdkman/candidates/java/current/")
+(setenv "JAVA_HOME" "~/.sdkman/candidates/java/current")
+(setq lsp-java-java-path "~/.sdkman/candidates/java/current/bin/java")
+
+(add-hook 'lsp-after-initialize-hook 'lsp-treemacs-symbols)
+
+(use-package! flycheck :init (global-flycheck-mode))
+(use-package! lsp-ui)
+(use-package! posframe)
